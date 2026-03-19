@@ -19,26 +19,61 @@ h1 {
     text-shadow: 0 0 25px rgba(240, 240, 255, 0.6);
     color: rgb(255, 255, 255);
     text-align: center;
+    margin-bottom: 2px;
 }
 
 p {
-    font-size: large;
-    color:rgb(125, 15, 200);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    font-size: x-large;
     text-align: center;
+    margin-bottom: 20%;
+    color:rgb(125, 15, 200);
+}
+
+main p:first-of-type {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 0;
+    color: #9b72bf;
 }
 
 button {
     display: block;
     margin: 0 auto;
-    background-color: rgb(117, 15, 185);
+    background-color: #3d2255;
     color: #ffffff;
     font-size: 1.2rem;
     padding: 14px 32px;
-    border: none;
+    border: 1px solid #6b4a8a;
     border-radius: 12px;
     cursor: pointer;
 }
+
+label {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+}
+
+label select {
+    background-color: #2a1a3a;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 8px 20px;
+    border: 1px solid #6b4a8a;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.size-label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    color: #ffffff;
+    margin-bottom: 0%;
+}
+
 
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
