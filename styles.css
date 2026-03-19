@@ -1,0 +1,23 @@
+* {
+    background-color: #333;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
