@@ -40,4 +40,19 @@ btn.addEventListener('click', () => {
     btn.classList.add('pressed');
     setTimeout(() => btn.classList.remove('pressed'), 150);
     generatePalette();
+    showFeedback('✓ Paleta generada');
+});
+
+function showFeedback(msg) {
+    const fb = document.getElementById('feedback');
+    fb.textContent = msg;
+    fb.classList.remove('visible');
+    void fb.offsetWidth;  // fuerza reflow → garantiza que la transición se dispare
+    fb.classList.add('visible');
+    clearTimeout(fb._timer);
+    fb._timer = setTimeout(() => fb.classList.remove('visible'), 2000);
+}
+
+sizeSelect.addEventListener('change', () => {
+    showFeedback(`Tamaño cambiado a ${sizeSelect.value} colores`);
 });
