@@ -1,17 +1,17 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 body {
-  background-color: #333;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #ffffff;
+    background-color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
 }
 
 h1 {
@@ -19,14 +19,13 @@ h1 {
     text-shadow: 0 0 25px rgba(240, 240, 255, 0.6);
     color: rgb(255, 255, 255);
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
 }
 
 p {
 
     font-size: x-large;
     text-align: center;
-    margin-bottom: 20%;
     color:rgb(125, 15, 200);
 }
 
@@ -76,11 +75,11 @@ label select {
 
 
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  
-  .grid {
+    h1 { font-size: 2rem; }
+    
+    .grid {
     grid-template-columns: 1fr;
-  }
+    }
 }
 
 button {
@@ -94,13 +93,24 @@ button.pressed {
 }
 
 #palette {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     gap: 14px;
     padding: 16px 20px;
     max-width: 900px;
     margin: 0 auto 24px;
+}
+
+#palette.size-6 {
+    grid-template-columns: repeat(3, 2fr); /* 2 rows × 3 cols */
+}
+
+#palette.size-8 {
+    grid-template-columns: repeat(4, 2fr); /* 2 rows × 4 cols */
+}
+
+#palette.size-9 {
+    grid-template-columns: repeat(3, 3fr); /* 3 rows × 3 cols */
 }
 
 .swatch {

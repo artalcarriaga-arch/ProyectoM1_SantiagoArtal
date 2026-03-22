@@ -15,7 +15,7 @@ function hslToHex(h, s, l) {
 function generatePalette() {
     const size = parseInt(sizeSelect.value);
     palette.innerHTML = '';
-
+    palette.className = `size-${size}`;
     for (let i = 0; i < size; i++) {
         const h = Math.floor(Math.random() * 360);
         const s = Math.floor(Math.random() * 61) + 40; // 40–100%
@@ -26,10 +26,12 @@ function generatePalette() {
         const swatch = document.createElement('div');
         swatch.className = 'swatch';
         swatch.innerHTML = `
-            <div class="swatch-color" style="background-color: ${hslStr}"></div>
-            <div class="swatch-hex">${hexStr}</div>
-            <div class="swatch-hsl">hsl(${h}, ${s}%, ${l}%)</div>
-        `;
+    <div class="swatch-color" style="background-color: ${hslStr}"></div>
+    <div class="swatch-info">
+        <div class="swatch-hsl">HSL: ${h}, ${s}%, ${l}%</div>
+        <div class="swatch-hex">HEX: ${hexStr}</div>
+    </div>
+`;
         palette.appendChild(swatch);
     }
 }
