@@ -27,13 +27,29 @@ function generatePalette() {
     palette.innerHTML = '';
     palette.className = `size-${size}`;
 
+    const colors = [];
+
     for (let i = 0; i < size; i++) {
         const h      = Math.floor(Math.random() * 360);
         const s      = Math.floor(Math.random() * 61) + 40;
-        const l      = Math.floor(Math.random() * 41) + 30;
+        const l = Math.floor(Math.random() * 41) + 30;
+        colors.push({ h, s, l });
         const hslStr = `hsl(${h}, ${s}%, ${l}%)`;
         const hexStr = hslToHex(h, s, l);
 
+        function loadSavedPalette() {
+    const saved = localStorage.getItem('savedPalette');
+    if (!saved) return;
+
+    const colors = JSON.parse(saved);
+    palette.className = `size-${colors.length}`;
+
+    colors.forEach(({ h, s, l }) => {
+        const hslStr = `hsl(${h}, ${s}%, ${l}%)`;
+        const hexStr = hslToHex(h, s, l);
+    })
+}
+        
         const swatch = document.createElement('div');
         swatch.className = 'swatch';
         swatch.setAttribute('aria-label', `Color ${hexStr}`);
@@ -63,6 +79,7 @@ function generatePalette() {
 
         palette.appendChild(swatch);
     }
+    localStorage.setItem('savedPalette', JSON.stringify(colors));
 }
 
 btn.addEventListener('click', () => {
@@ -72,3 +89,5 @@ btn.addEventListener('click', () => {
     showToast('Paleta de colores generada');
     setTimeout(() => toast.classList.remove('show'), 2000);
 });
+
+loadSavedPalette();
